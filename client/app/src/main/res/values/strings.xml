@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PickPicture</string>
+    <string name="splash_activity_splash_instruction">PickPicture</string>
+    <string name="main_activity_item_all">PickPicture</string>
+    <string name="action_other">other</string>
+</resources>
