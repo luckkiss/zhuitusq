@@ -9,11 +9,14 @@
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/black"
         app:headerLayout="@layout/nav_setting_main"
-        app:menu="@menu/activity_setting_drawer" />
+        app:menu="@menu/activity_setting_drawer"
+        app:itemTextColor="@color/colorTitle"
+        app:itemIconTint="@color/colorTitle"/>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/right_nav_view"
