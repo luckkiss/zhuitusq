@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface ApiService {
     companion object {
-        val Gank_BASE_URL: String
+        val Pick_BASE_URL: String
             get() = "http://gank.io/api/data/"
         val WEATHER_BASE_URL: String
             get() = "https://free-api.heweather.com/s6/"
@@ -17,9 +17,9 @@ interface ApiService {
 
     //获取Gank第一页数据
     @GET("{type}/{count}/1")
-    fun getGankData(@Path("type") type: String, @Path("count") count: String?): Observable<PickBean>?
+    fun getPickData(@Path("type") type: String, @Path("count") count: String?): Observable<PickBean>?
 
     //获取Gank第一页之后的数据
     @GET("{type}/{count}/{page}")
-    fun getGankMoreData(@Path("type") type: String, @Path("count") count: String?, @Path("page") page: String?): Observable<PickBean>
+    fun getPickMoreData(@Path("type") type: String, @Path("count") count: String?, @Path("page") page: String?): Observable<PickBean>
 }

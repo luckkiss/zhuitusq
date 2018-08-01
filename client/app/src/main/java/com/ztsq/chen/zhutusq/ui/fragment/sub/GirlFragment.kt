@@ -1,6 +1,7 @@
 package com.ztsq.chen.zhutusq.ui.fragment.sub
 
 import android.support.v7.widget.GridLayoutManager
+import android.util.Log
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
@@ -11,13 +12,14 @@ import com.ztsq.chen.zhutusq.mvp.contract.PickContract
 import com.ztsq.chen.zhutusq.mvp.model.bean.PickBean
 import com.ztsq.chen.zhutusq.ui.commom.PickBaseFragment
 import kotlinx.android.synthetic.main.fragment_pick_item.*
+import java.io.Console
 
 class GirlFragment : PickBaseFragment() , PickContract.View , OnRefreshListener, OnLoadmoreListener {
 
     private var mIsRefresh: Boolean = false
     private var mIsLoadMoreRefresh: Boolean = false
-    lateinit private var mPresenter: GirlPresenter
-    lateinit private var mAdapter: GirlAdapter
+    private lateinit var mPresenter: GirlPresenter
+    private lateinit var mAdapter: GirlAdapter
     private var mList = ArrayList<PickBean.Result>()
     private val mCount: String? = "10"
     private var mPage: Int? = 1
@@ -53,6 +55,7 @@ class GirlFragment : PickBaseFragment() , PickContract.View , OnRefreshListener,
     }
 
     override fun initView() {
+        Log.i("GirlFragment","---------------->>")
         mPresenter = GirlPresenter(context!!, this)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         mAdapter = GirlAdapter(context!!, mList)

@@ -38,7 +38,7 @@ class MainFragment:CommonFragment(),TabLayout.OnTabSelectedListener {
 
     override fun initView() {
         viewPager.adapter = MainPagerAdapter(activity?.supportFragmentManager)
-        viewPager.offscreenPageLimit = 8
+        viewPager.offscreenPageLimit = 1
         tabLayout.addOnTabSelectedListener(this)
         tabLayout.setupWithViewPager(viewPager)
     }

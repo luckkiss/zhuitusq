@@ -1,6 +1,7 @@
 package com.ztsq.chen.zhutusq.mvp.Presenter
 
 import android.content.Context
+import android.util.Log
 import com.ztsq.chen.zhutusq.mvp.contract.PickContract
 import com.ztsq.chen.zhutusq.mvp.model.GirlModel
 import com.ztsq.chen.zhutusq.mvp.model.bean.PickBean
@@ -24,6 +25,7 @@ class GirlPresenter(context: Context, view: PickContract.View) : PickContract.Pr
     }
 
     override fun requestData() {
+        Log.i("requestData","-------------->>")
         val observable: Observable<PickBean>? = mContext?.let { mModel.loadData(it, "20") }
         observable?.applySchedulers()?.subscribe { commonBean: PickBean -> mView?.setData(commonBean) }
     }
