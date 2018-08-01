@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
@@ -12,10 +13,12 @@ import android.view.MenuItem
 import android.view.View
 import com.gyf.barlibrary.ImmersionBar
 import com.ztsq.chen.zhutusq.R
+import com.ztsq.chen.zhutusq.ui.fragment.MainFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    lateinit private var mainFragment: MainFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setDrawerToggle()
         setListener()
         initToolBar()
+
+        initFragment(savedInstanceState)
+    }
+
+    private fun initFragment(savedInstanceState: Bundle?) {
+        if (savedInstanceState != null) {
+            //异常情况
+            val mFragments: List<Fragment> = supportFragmentManager.fragments
+            for (item in mFragments) {
+                if (item is MainFragment) {
+                    mainFragment = item
+                }
+            }
+        }else{
+            mainFragment = MainFragment()
+            val fragmentTrans = supportFragmentManager.beginTransaction()
+            fragmentTrans.add(R.id.fl_content, mainFragment)
+            fragmentTrans.commit()
+        }
+
+        supportFragmentManager.beginTransaction().show(mainFragment)
+                .commit()
     }
 
     /*设置ActionBar*/
