@@ -1,6 +1,7 @@
 package com.ztsq.chen.zhutusq.network
 
 import com.ztsq.chen.zhutusq.mvp.model.bean.PickBean
+import com.ztsq.chen.zhutusq.mvp.model.bean.WeatherBean
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -22,4 +23,7 @@ interface ApiService {
     //获取Gank第一页之后的数据
     @GET("{type}/{count}/{page}")
     fun getPickMoreData(@Path("type") type: String, @Path("count") count: String?, @Path("page") page: String?): Observable<PickBean>
+
+    @POST("weather")
+    fun getWeatherData(@Query("key") key: String, @Query("location") location: String?): Observable<WeatherBean>?
 }

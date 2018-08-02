@@ -14,11 +14,14 @@ import android.view.View
 import com.gyf.barlibrary.ImmersionBar
 import com.ztsq.chen.zhutusq.R
 import com.ztsq.chen.zhutusq.ui.fragment.MainFragment
+import com.ztsq.chen.zhutusq.ui.fragment.WeatherFragment
+import com.ztsq.chen.zhutusq.utils.switchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var mainFragment: MainFragment
+    private lateinit var weatherFragment: WeatherFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +47,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if (item is MainFragment) {
                     mainFragment = item
                 }
+                if (item is WeatherFragment) {
+                    weatherFragment = item
+                }
             }
         }else{
             mainFragment = MainFragment()
+            weatherFragment = WeatherFragment()
             val fragmentTrans = supportFragmentManager.beginTransaction()
             fragmentTrans.add(R.id.fl_content, mainFragment)
+            fragmentTrans.add(R.id.fl_content, weatherFragment)
             fragmentTrans.commit()
         }
 
         supportFragmentManager.beginTransaction().show(mainFragment)
+                .hide(weatherFragment)
                 .commit()
     }
 
@@ -71,7 +80,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun setListener() {
-        nav_view.setNavigationItemSelectedListener(this)
+//        nav_view.setNavigationItemSelectedListener(this)
+
+        nav_view.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_manage -> {
+                    tv_bar_title.text = "PickPicture"
+                    supportFragmentManager.beginTransaction().show(mainFragment)
+                            .hide(weatherFragment)
+                            .commit()
+                }
+                R.id.nav_item_weather -> {
+                    tv_bar_title.text = "天气"
+                    supportFragmentManager.beginTransaction().show(weatherFragment)
+                            .hide(mainFragment)
+                            .commit()
+                }
+            }
+            drawer_layout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 
     private fun initToolBar(){

@@ -7,10 +7,10 @@
     >
 
     <ImageView
-        android:layout_width="149dp"
-        android:layout_height="95dp"
+        android:layout_width="143dp"
+        android:layout_height="208dp"
         android:layout_marginTop="25dp"
-        android:src="@mipmap/card_10" />
+        android:src="@mipmap/card_6" />
 
     <TextView
         android:id="@+id/tv_user_name"
