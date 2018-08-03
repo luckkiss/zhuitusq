@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface ApiService {
     companion object {
         val Pick_BASE_URL: String
-            get() = "http://gank.io/api/data/"
+            get() = "https://gank.io/api/data/"
         val WEATHER_BASE_URL: String
             get() = "https://free-api.heweather.com/s6/"
     }

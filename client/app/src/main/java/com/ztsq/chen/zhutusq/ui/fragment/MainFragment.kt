@@ -20,7 +20,7 @@ class MainFragment:CommonFragment(),TabLayout.OnTabSelectedListener {
                 0 -> return GirlFragment()
                 1 -> return GirlFragment()
             }
-            return MyPickFragment()
+            return GirlFragment()
         }
 
         override fun getCount(): Int {

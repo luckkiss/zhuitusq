@@ -57,6 +57,7 @@ class GirlFragment : PickBaseFragment() , PickContract.View , OnRefreshListener,
     override fun initView() {
         Log.i("GirlFragment","---------------->>")
         mPresenter = GirlPresenter(context!!, this)
+        mPresenter.start()
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         mAdapter = GirlAdapter(context!!, mList)
         recyclerView.adapter = mAdapter
