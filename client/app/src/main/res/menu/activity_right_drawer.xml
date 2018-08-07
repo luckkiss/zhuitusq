@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="最新资讯" />
+        <item
+            android:id="@+id/nav_area"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="按区域" />
+        <item
+            android:id="@+id/nav_type"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="按类型" />
+        <item
+            android:id="@+id/nav_job"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="按职业" />
+        <item
+            android:id="@+id/nav_girl"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="美女图片" />
+        <item
+            android:id="@+id/nav_rank"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="排行榜" />
+        <item
+            android:id="@+id/nav_pk"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="女神大PK" />
+        <item
+            android:id="@+id/nav_random"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="巧遇女神" />
+        <item
+            android:id="@+id/nav_guestbook"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="访客留言" />
+    </group>
+</menu>
